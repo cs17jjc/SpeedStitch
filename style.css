@@ -1,0 +1,282 @@
+    body {
+        margin: 0;
+        background-color: black;
+        overflow: hidden;
+    }
+    
+    body.stop-transitions * {
+        transition: all 0s linear 0s !important;
+    }
+    
+    canvas,
+    img {
+        -ms-interpolation-mode: bicubic;
+        image-rendering: pixelated;
+    }
+    
+    img {
+        display: none;
+    }
+    
+    .canvas-container {
+        margin: auto;
+        position: relative;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    #canvas {
+        position: absolute;
+        background-color: lightgrey;
+    }
+    
+    #cover {
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    #cover.fade-in {
+        animation-duration: 2s;
+        animation-name: fadeIn;
+        animation-fill-mode: forwards;
+    }
+    
+    #cover.fade-out {
+        animation-duration: 2s;
+        animation-name: fadeOut;
+        animation-fill-mode: forwards;
+    }
+    
+    #cover.fade-partial-in {
+        animation-duration: 1s;
+        animation-name: fadePartialIn;
+        animation-fill-mode: forwards;
+    }
+    
+    #cover.fade-partial-out {
+        animation-duration: 1s;
+        animation-name: fadePartialOut;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            display: none;
+        }
+        to {
+            opacity: 1;
+            display: block;
+        }
+    }
+    
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            display: block;
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+    
+    @keyframes fadePartialIn {
+        from {
+            opacity: 0;
+            display: none;
+        }
+        to {
+            opacity: 0.5;
+            display: block;
+        }
+    }
+    
+    @keyframes fadePartialOut {
+        from {
+            opacity: 0.5;
+            display: block;
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+    
+    #restart-btn {
+        position: absolute;
+        background-color: red;
+        text-align: center;
+        z-index: 1;
+        padding: 3vw 6vw;
+        border-radius: 1vw;
+        top: 40%;
+        transition: padding 0.1s linear 0s;
+        cursor: pointer;
+        box-shadow: black 0px 0px 5px;
+        font-family: Lato;
+        font-size: 3vw;
+    }
+    
+    #restart-btn:hover {
+        padding: 4vw 7vw;
+    }
+    
+    .in {
+        animation-duration: 1s;
+        animation-name: In;
+        animation-fill-mode: forwards;
+    }
+    
+    .out {
+        animation-duration: 1s;
+        animation-name: Out;
+        animation-fill-mode: forwards;
+        cursor: default !important;
+        pointer-events: none;
+    }
+    
+    @keyframes In {
+        from {
+            opacity: 0;
+            display: none;
+        }
+        to {
+            opacity: 1;
+            display: block;
+        }
+    }
+    
+    @keyframes Out {
+        from {
+            opacity: 1;
+            display: block;
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+    
+    #highscore {
+        position: absolute;
+        text-align: center;
+        z-index: 1;
+        padding: 3vw 6vw;
+        top: 15%;
+        font-family: Lato;
+        font-size: 5vw;
+        color: goldenrod;
+        text-shadow: 2px 2px 5px #000000;
+    }
+    
+    #paused {
+        position: absolute;
+        text-align: center;
+        z-index: 1;
+        padding: 3vw 6vw;
+        top: 15%;
+        font-family: Lato;
+        font-size: 5vw;
+        color: white;
+        text-shadow: 2px 2px 5px #000000;
+    }
+    
+    #coverFront {
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+        transition: opacity 1s linear 0s;
+        color: white;
+        text-align: center;
+        font-family: Lato;
+        font-size: 5vw;
+    }
+    
+    #coverFront.hide {
+        opacity: 0;
+    }
+    
+    #audio-control {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15%;
+        height: 8%;
+        font-size: 1vw;
+        z-index: 1;
+        font-family: Lato;
+    }
+    
+    #audio-control #music {
+        background-color: white;
+        position: absolute;
+        top: 5%;
+        left: 35%;
+        width: 4vw;
+        height: 4vw;
+        color: black;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1vw;
+        transition: background-color 0.2s ease-in, border-radius 0.2s ease-in, color 0.2s ease-in;
+        cursor: pointer;
+    }
+    
+    #audio-control #sound {
+        background-color: white;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 4vw;
+        height: 4vw;
+        color: black;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1vw;
+        transition: background-color 0.2s ease-in, border-radius 0.2s ease-in, color 0.2s ease-in;
+        cursor: pointer;
+    }
+    
+    #audio-control #EscToPause {
+        position: absolute;
+        top: 90%;
+        left: 8%;
+        width: 8vw;
+        height: 2vw;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1vw;
+        cursor: pointer;
+    }
+    
+    #audio-control #music:hover,
+    #audio-control #sound:hover {
+        border-radius: 2vw;
+    }
+    
+    .active {
+        background-color: black !important;
+        color: white !important;
+    }

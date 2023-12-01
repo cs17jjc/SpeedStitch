@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Survivo2r</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+    <img src="Textures/Pattern/texture1.png" id="p1">
+    <img src="Textures/Pattern/texture2.png" id="p2">
+
+    <img src="Textures/Single/Timer.png" id="timer">
+    <img src="Textures/Single/Background.png" id="bg">
+    <img src="Textures/Single/Foreground.png" id="fg">
+    <img src="Textures/Single/Pin.png" id="pin">
+    <img src="Textures/Single/title.png" id="title">
+
+</head>
+
+<body onresize="resizeDisplay();">
+    <div class="canvas-container" id="canvas-container">
+        <canvas id='canvas'></canvas>
+        <div id="restart-btn" onclick="onResBtn();" class="hide">Restart</div>
+        <div id="highscore" class="">Highscore: <span id="highscore-value"></span></div>
+        <div id="paused" class="">Paused</div>
+        <div id="cover" class="fade-out"></div>
+        <div id="audio-control">
+            <div id="music" onclick="toggleMusic()">Music</div>
+            <div id="sound" onclick="toggleSound()">Sound</div>
+            <div id="EscToPause">Esc To Pause</div>
+        </div>
+        <div id="coverFront">Loading...</div>
+    </div>
+
+    <script src=" utils.js "></script>
+    <script src="CreateObject.js "></script>
+    <script src="Input.js "></script>
+    <script src="TextureSheet.js "></script>
+    <script src="Scene.js "></script>
+    <script src="UpdateScene.js "></script>
+    <script src="RenderScene.js "></script>
+    <script src="zzfx.js "></script>
+    <script src="Sound.js "></script>
+    <script src="song.js "></script>
+    <script src="main.js "></script>
+</body>
+
+</html>
